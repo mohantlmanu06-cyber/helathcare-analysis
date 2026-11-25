@@ -134,13 +134,20 @@ def plot_elbow_and_silhouette(metrics: Dict[str, Any]) -> go.Figure:
 
     fig.update_layout(
         title="Optimal Cluster Evaluation: Elbow Curve & Silhouette Scores",
-        xaxis=dict(title="Number of Clusters (k)"),
-        yaxis=dict(title="Inertia (WCSS)", titlefont=dict(color=THEME["primary"]), tickfont=dict(color=THEME["primary"])),
-        yaxis2=dict(title="Silhouette Score", titlefont=dict(color=THEME["danger"]), tickfont=dict(color=THEME["danger"]),
-                    overlaying="y", side="right"),
+        xaxis=dict(title=dict(text="Number of Clusters (k)")),
+        yaxis=dict(
+            title=dict(text="Inertia (WCSS)", font=dict(color=THEME["primary"])),
+            tickfont=dict(color=THEME["primary"])
+        ),
+        yaxis2=dict(
+            title=dict(text="Silhouette Score", font=dict(color=THEME["danger"])),
+            tickfont=dict(color=THEME["danger"]),
+            overlaying="y",
+            side="right"
+        ),
         height=350,
         margin=dict(l=20, r=20, t=40, b=20),
-        font=dict(family="Inter"),
+        font=dict(family="IBM Plex Sans"),
         legend=dict(x=0.55, y=0.95)
     )
     return fig
